@@ -12,8 +12,8 @@ router.get('/', function(req, res, next) {
 
 /* GET userlist JSON */
 router.get('/userlist', function(req, res, next) {
-  // TODO: Return the list with all the users.
-  res.send('Nothing :(');
+  // TODO: Return a list with all the users.
+  res.send('Unimplemented :(');
 });
 
 /* POST to adduser */
@@ -38,7 +38,7 @@ router.post('/deleteuser', function(req, res, next) {
   //
   // Hint: How can you tell whether User.remove() was successful?
 
-  res.send('Nothing :(');
+  res.send('Unimplemented :(');
 });
 
 router.get('/findfruit', function(req, res, next) {
@@ -46,9 +46,10 @@ router.get('/findfruit', function(req, res, next) {
 
   // TODO: Check if the user exists. If the user exists, send back
   // their favorite fruit. Otherwise, return an error.
+  res.send('Unimplemented :(');
 
   // If the user does not exist, use this line of code below.
-  res.send("Error! Username not found");
+  res.send('Error! Username not found');
 });
 
 module.exports = router;
