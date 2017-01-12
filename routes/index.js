@@ -12,8 +12,11 @@ router.get('/', function(req, res, next) {
 
 /* GET userlist JSON */
 router.get('/userlist', function(req, res, next) {
-  // TODO: Return a list with all the users.
-  res.send('Unimplemented :(');
+  // Passing in an empty object to User.find() will return a list of
+  // all the users.
+  User.find({}, function(err, users) {
+    res.send(users);
+  });
 });
 
 /* POST to adduser */
