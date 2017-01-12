@@ -24,9 +24,8 @@ router.post('/adduser', function(req, res, next) {
   var username = req.body.username;
   var userFruit = req.body.userfruit;
 
-  // TODO: insert the new document into the collection 'users'
-  // Insert a new document if the username doesn't already exist.
-  // Otherwise, update the existing user!
+  // TODO: Create a new document with the given username and favorite fruit.
+  // If the username already exists, then do nothing.
   var newUser = new User({
     'username': username,
     'favoriteFruit': userFruit
@@ -42,9 +41,12 @@ router.post('/deleteuser', function(req, res, next) {
   var username = req.body.username;
 
   // TODO: Remove the document from the collection, if it exists.
-  // Otherwise, return an error.
+  // Otherwise, let the client know that the user does not exist.
   //
   // Hint: How can you tell whether User.remove() was successful?
+  // Look at the second parameter of the callback function passed
+  // User.remove(). You can get the number of documents deleted
+  // by the operation.
   User.remove({'username': username}, function(err, result) {
     if (err) {
       res.send('An error occurred!');
@@ -62,7 +64,8 @@ router.get('/findfruit', function(req, res, next) {
   var username = req.query.username;
 
   // TODO: Check if the user exists. If the user exists, send back
-  // their favorite fruit. Otherwise, return an error.
+  // their favorite fruit. Otherwise, let the client know that the
+  // username is not in the database.
   User.findOne({'username': username}, function(err, user) {
     if (err) {
       res.send('An error occurred!');
