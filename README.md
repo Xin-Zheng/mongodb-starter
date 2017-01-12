@@ -1,10 +1,10 @@
 # Express + MongoDB
 
-This app requires a MongoDB running!
+This app requires a MongoDB instance running!
 
 Run MongoDB from the folder with
 
-    mongod --dbpath ./db-data
+    mongod --dbpath ./data
 
 Don't forget to `npm install`!
 
